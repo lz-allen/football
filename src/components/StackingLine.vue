@@ -12,15 +12,22 @@ require('echarts/lib/component/legend')
 export default {
   name: 'mySLine',
   props: ['stackOptions'],
+  data () {
+    return {
+      myChart: null
+    }
+  },
   methods: {
-    drawLine () {
-      let myChart = echarts.init(this.$refs.myLine)
-      let option = this.stackOptions
-      myChart.setOption(option)
+    createGraph () {
+      this.myChart = echarts.init(this.$refs.myLine)
+      this.myChart.setOption(this.stackOptions)
+    },
+    dataRefresh () {
+      this.myChart.setOption(this.stackOptions)
     }
   },
   mounted () {
-    this.drawLine()
+    this.createGraph()
   }
 }
 </script>
@@ -28,6 +35,6 @@ export default {
 <style scoped>
   #stackingLine{
     width: 100%;
-    height: 1500px;
+    height: 100%;
   }
 </style>

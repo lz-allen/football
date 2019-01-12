@@ -18,6 +18,15 @@ function getPersonDetail (code) {
   })
 }
 
+function getOtherCard (code) {
+  return axios.get('/api/api/fifamobile/card/otherCard', {
+    params: {
+      code: code,
+      _: new Date().getTime()
+    }
+  })
+}
+
 function getTrainData (code, level) {
   return axios('http://api.wantuole.com/api/levelup/list', {
     params: {
@@ -68,17 +77,15 @@ function getTalentNumVal () {
 
 // 条件查询页面
 // 查询
-// n名字 r品质 j位置 nc国家 lc联赛 cc球队 pc活动 b天赋 h身高 f常用脚 ma最大评分 mi最小评分
+// n名字 r品质 j位置 nc国家 lc联赛 cc球队 pc活动 b天赋 h身高 f常用脚 ma最大评分 mi最小评分 t隐藏特性
 function getList (obj) {
   let params = {
     '1': 1,
     v: 1,
-    page: 1,
     _: new Date().getTime()
   }
   Object.keys(obj).forEach(key => {
     if (obj[key] !== '') {
-      console.log(obj[key])
       params[key] = obj[key]
     }
   })
@@ -129,9 +136,9 @@ function getNationInfo () {
     }
   })
 }
-
 export {
   getPersonDetail,
+  getOtherCard,
   getTrainData,
   getTalentData,
   getTrainNumVal,

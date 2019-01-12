@@ -3,17 +3,23 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import 'lib-flexible/flexible'
-import {Button, Slider, Input, Select, Option, OptionGroup, Message, Radio, Loading} from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import {Button, Dialog, Pagination, Slider, Input, Select, Tag, Option, OptionGroup, Message, Radio, Loading, Dropdown, DropdownMenu, DropdownItem} from 'element-ui'
 
 Vue.use(Slider)
 Vue.use(Select)
 Vue.use(Input)
 Vue.use(Option)
+Vue.use(Dialog)
+Vue.use(Tag)
 Vue.use(Button)
 Vue.use(Radio)
 Vue.use(Loading)
 Vue.use(OptionGroup)
+Vue.use(Dropdown)
+Vue.use(Pagination)
+Vue.use(DropdownMenu)
+Vue.use(DropdownItem)
 Vue.prototype.$message = Message
 Vue.config.productionTip = false
 

@@ -28,6 +28,6 @@ export default {
 <style scoped>
 #line{
   width: 100%;
-  height: 1500px;
+  height: 100%;
 }
 </style>

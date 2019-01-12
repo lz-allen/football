@@ -27,9 +27,7 @@ export default {
 
 <style scoped>
 #radar{
-  display: flex;
- margin: auto;
-  width: 80%;
-  height: 800px;
+  width: 100%;
+  height: 100%;
 }
 </style>

@@ -96,7 +96,39 @@ function getBackground (pn, r, score, hb, bg) {
   imgUrl = imgUrl + imgName
   return imgUrl
 }
+
+const storage = {
+  setSession (key, value) {
+    typeof value === 'object' ? window.sessionStorage.setItem(key, JSON.stringify(value)) : window.sessionStorage.setItem(key, value)
+  },
+  getSession (key) {
+    let result
+    try {
+      result = JSON.parse(window.sessionStorage.getItem(key))
+    } catch (error) {
+      result = window.sessionStorage.getItem(key)
+    }
+    return result
+  },
+  getAll () {
+    let arr = []
+    for (var i = 0, len = window.sessionStorage.length; i < len; i++) {
+      let key = window.sessionStorage.key(i)
+      let value = this.getSession(key)
+      arr.push({key: key, value: value})
+    }
+    return arr
+  },
+  clearOneSession (key) {
+    window.sessionStorage.removeItem(key)
+  },
+  clearAll () {
+    window.sessionStorage.clear()
+  }
+}
+
 export {
   getHead,
-  getBackground
+  getBackground,
+  storage
 }

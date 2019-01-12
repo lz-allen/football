@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import PersonInfo from '@/views/PersonInfo'
-import Index from '@/views/Index'
+import Home from '@/views/home'
 import PlayerCmp from '@/views/PlayerCmp'
 
 Vue.use(Router)
@@ -10,25 +10,22 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/Index'
+      redirect: '/home'
     },
     {
-      path: '/Index',
-      name: 'Index',
-      component: Index,
-      meta: {keepAlive: true}
+      path: '/home',
+      name: '首页',
+      component: Home
     },
     {
-      path: '/PersonInfo',
+      path: '/personInfo',
       name: 'PersonInfo',
-      component: PersonInfo,
-      meta: {keepAlive: false}
+      component: PersonInfo
     },
     {
-      path: '/PlayerCmp',
+      path: '/playerCmp',
       name: 'PlayerCmp',
-      component: PlayerCmp,
-      meta: {keepAlive: true}
+      component: PlayerCmp
     }
   ]
 })
